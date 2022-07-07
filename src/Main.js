@@ -9,7 +9,7 @@ return(
     <Container>
         <LoginModal>
             <LoginStr>
-               로그인
+               로그인 제발좀 되라
             </LoginStr>
             <IDPWinput id="idinput" type="text" placeholder=" 아이디를 입력하세요"/>
             <IDPWinput id="pwinput" type='password' placeholder=" 비밀번호를 입력하세요"/>

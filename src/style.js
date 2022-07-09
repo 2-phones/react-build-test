@@ -19,21 +19,50 @@ const LoginModal = styled.div`
 
 const IDPWinput = styled.input`
     width : 80%;
-    height : 50px;
+    height : 40px;
     border-radius : 10px;
+    font-size : 20px;
+    padding-left : 10px;
     &#pwinput{
         margin-top : 20px;
     };
 `;
 
 const LoginBtn = styled.button`
+    width : 100%;
+    height : 70%;
+    border : 0;
+    background : #ffffff;
+    display :flex;
+    justify-content : center;
+    flex-direction : column;
+    align-items : center;
+> Button { 
     width : 80%;
     height : 50px;
-    margin-top : 30px;
-    background : black;
-    color : #ffff;
+    margin-top : 15px;
+    background : ${ props => props.color ? props.color : '#ffffff'};
+    color : black;
+    font-size: 20px;
     border-radius: 20px;
+   }
+   > .login-Btn {
+       margin-top : 0px;
+       margin-bottom : 60px;
+       background : black;
+       color : #ffffff;
+   }
+   > .social-Login {
+
+   }
+`
+const SocialLogin = styled(LoginBtn)`
+    background : #ffffff;
+    > :nth-child(1) {
+        margin-top : 25px;
+    }
 `
 
 
-export {LoginStr,Container,LoginModal,IDPWinput,LoginBtn}
+
+export {LoginStr,Container,LoginModal,IDPWinput,LoginBtn,SocialLogin,}

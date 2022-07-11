@@ -1,34 +1,36 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import {LoginStr,Container,LoginModal,IDPWinput,LoginBtn,SocialLogin} from './style.js';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGoogle,faInstagram } from "@fortawesome/free-brands-svg-icons";
+
 
 const Main = () => {
-return(
-    <Container>
-        <LoginModal>
-            <LoginStr>
-               로그인
-            </LoginStr>
-            <IDPWinput id="idinput" type="text" placeholder=" 아이디를 입력하세요"/>
-            <IDPWinput id="pwinput" type='password' placeholder=" 비밀번호를 입력하세요"/>
-            <LoginBtn>
-                <button className="login-Btn">로그인</button>
-               
-                <button className="social-Login google">
-                <span><FontAwesomeIcon icon={faGoogle} /></span>
-                <span> Google Login </span>
-                </button>
-                <button className="social-Login naver">Naver Loign</button>
-                <button className="social-Login instagram">
-                <FontAwesomeIcon icon={faInstagram} /> Instagram Login
-                    </button>
-                <button className="social-Login kakao">Kakao Login</button>
-            </LoginBtn>
-        </LoginModal>
-    </Container>
-)
-}
+    const navigate = useNavigate();
+    return(
 
-export default Main;
+        <container>
+            <Nav navigate={navigate}/>
+            <div>zzzz</div>
+        </container>
+   
+   )}
+
+const Style = styled.div`
+    padding : 25px;
+    .logingo{
+        font-size : 35px;
+        cursor : pointer;
+    };
+`
+
+const Nav = ({navigate}) => {
+    return(
+        <div className="nav-menu">
+            <Style>
+            <div className="logingo" 
+            onClick={ (e) => {e.stopPropagation(); navigate('/login')} }>로그인하기</div>
+            </Style>
+        </div>
+
+    )}
+
+export default Main

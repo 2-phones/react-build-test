@@ -45,6 +45,7 @@ const LoginBtn = styled.button`
     color : black;
     font-size: 20px;
     border-radius: 20px;
+    cursor : pointer;
    }
    > .login-Btn {
        margin-top : 0px;
@@ -54,6 +55,9 @@ const LoginBtn = styled.button`
    }
    > .social-Login {
 
+   }
+   > Button:active{
+    background : #e8eaf6;
    }
 `
 const SocialLogin = styled(LoginBtn)`

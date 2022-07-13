@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 const SignUP = () => {
     const navigate = useNavigate();
-    const newData = {};
+    const newData = {id : '', pw : '',};
     const [newID , setnewID] = useState('');
     const [newPW , setnewPW] = useState('');
     const [users, setUsers] = useState(user);
@@ -13,21 +13,19 @@ const SignUP = () => {
     const userID = (id) => {
         const input = id.target.value
         setnewID(input)
-            
+        
         }
     const userPW = (pw) => {
         const input = pw.target.value;
         setnewPW(input);
+       
     }
     
     const joinBtn = () => {
-        // for(let i of user){
-        //    i.id !== newData.id  ? users.push(newData)
-        //    : alert('중복된 아이디입니다!');
-        // };
-        // newUser.push(newData);
-        setUsers([...users,newID])
-        console.log(users);
+        newData.id = newID
+        newData.pw = newPW
+        user.push(newData)
+        console.log(newData);
     }
 
     return(
@@ -45,4 +43,4 @@ const SignUP = () => {
     )
 }
 
-export  { SignUP,users }
+export  default SignUP;

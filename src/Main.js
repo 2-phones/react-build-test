@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import userData from "./data";
 
 
 const Main = () => {
     const navigate = useNavigate();
+  
     return(
 
         <container>

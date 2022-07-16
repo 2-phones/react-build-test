@@ -2,31 +2,29 @@ import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGoogle,faInstagram } from "@fortawesome/free-brands-svg-icons";
 import { useNavigate } from "react-router-dom";
-import user from "./data";
+import userData from "./data";
 
 
-const Login = () => {
-    const [userID, setUserID ] = useState('');
-    const [userPW, setUserPW ] = useState('');
 
-    const idInputCheck = (i) => {
-        const inputID = i.target.value;
-        setUserID(inputID);
+const Login = ({userDatas}) => {
+    const [userInfo, setUserInfo ] = useState({
+        id : '',
+        password : '',
+    });
+  
+
+    const idInputCheck = (key) => (e) => {
+        setUserInfo({...userInfo, [key]: e.target.value});
     };
-
-    const pwInputCheck = (pw) => {
-        const inputPW = pw.target.value;
-        setUserPW(inputPW);
-    };
-
-// 함수내용 : 아이디,비번 값이 다 입력된경우? user.map 조건문 실행 , 하나라도 입력안된경우 ? id미입력시 id입력 모달, pw미입력시 pw 입력모달 
+    
+// 함수내용 : 로그인 인풋이 빈값인경우 와 유저 데이터의 정보와 맞지않는경우 경고 모달, 로그인 인풋값 과 유저 데이터 맞을시 성공
     const btnClick = () => { 
-
-        userID && userPW ? (user.map(el => {
-            el.id === userID && el.pw === userPW ? alert('성공') : 
-            ( el.id === userID ? alert('비밀번호를 확인해주세요!') : alert('존재하지 않는 아이디입니다!') ); }))
-        : ( userID ? alert('비밀번호를 입력하세요!') : alert('아이디를 입력하세요!'));
-        console.log(user);
+        const checkUser = userDatas.filter( (user) => user.id === userInfo.id && user.password === userInfo.password);
+        console.log(checkUser)
+        if(!userInfo.id || !userInfo.password ) return alert('please id & password enter!')
+        if(!checkUser.length) return alert('아이디 비번 확인하샘!');
+        
+        return alert('성공');
        
     };
    
@@ -34,15 +32,15 @@ const Login = () => {
         <>
             <LoginUi 
             idInputCheck={idInputCheck} 
-            pwInputCheck={pwInputCheck} 
-            btnClick={btnClick} />
+            btnClick={btnClick} 
+            />
         </>
     )
 }
 
 
 
-const LoginUi = ({idInputCheck, pwInputCheck, btnClick}) => {
+const LoginUi = ({idInputCheck, btnClick }) => {
     const navigate = useNavigate();
     return  (
         <container>
@@ -51,7 +49,7 @@ const LoginUi = ({idInputCheck, pwInputCheck, btnClick}) => {
             <input 
             id="idInput" 
             type="text" 
-            onChange={idInputCheck}
+            onChange={idInputCheck('id')}
             placeholder="아이디를 입력하세요"/>
             <label for="id">Your ID</label>
         </div>
@@ -59,7 +57,7 @@ const LoginUi = ({idInputCheck, pwInputCheck, btnClick}) => {
             <input 
             id="pwInput" 
             type="password" 
-            onChange={pwInputCheck}
+            onChange={idInputCheck('password')}
             placeholder="비밀번호를 입력하세요"/>
             <label for="id">Your PW</label>
         </div>
@@ -70,7 +68,7 @@ const LoginUi = ({idInputCheck, pwInputCheck, btnClick}) => {
             >로그인</button>
         </div>
         <div className="signup-idpwserach">
-            <button onClick={ () => navigate("/signup")} >회원가입</button>
+            <button onClick= { () => navigate('/signup' ) }> 회원가입</button>
             <div>id/pw찾기</div>
         </div>
         <div className="social-Login">
@@ -91,5 +89,40 @@ const LoginUi = ({idInputCheck, pwInputCheck, btnClick}) => {
     </container>
     )
 }
+
+const SignUP = ({setUserData}) => {
+    const navigate = useNavigate();
+    const [newUserInfo , setNewUserInfo] = useState({
+        id : '', 
+        password : '',
+    });
+
+    const newUser = (key) => (e) => {
+        setNewUserInfo({...newUserInfo, [key] : e.target.value });
+    }
+
+    const joinBtn = () => {
+        const checkUser = userData.filter( (user) => user.id === newUserInfo.id);
+        console.log(checkUser)
+        if(!newUserInfo.id && !newUserInfo.password) return alert('아이디 비밀번호를 입력하세요!');
+        if(checkUser.length) return alert('중복된 아이디 입니다!')
+        setUserData([...userData,newUserInfo]);
+    
+    }
+    return(
+        <container>
+            <div>
+                <input type="text" placeholder="아이디" onChange={newUser('id')}/>
+            </div>
+            <div>
+                <input type="password" placeholder="비밀번호" onChange={newUser('password')}/>
+            </div>
+            <button onClick={joinBtn}>가입ㄱㄱ</button>
+            <button onClick={ () => navigate('/login')}>로그인페이지로</button>
+            <button onClick={() => console.log(userData)}>클릭해보샘</button>
+        </container>
+    )
+}
+
 
 export default Login

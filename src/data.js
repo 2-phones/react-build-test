@@ -1,8 +1,17 @@
-const user = [
+const userData = [
     {
         id : "abc123",
-        pw: "12345",
-    }
+        password: "12345",
+    },
+    {
+        id : "kimcoding",
+        password: "12345",
+    },
+    {
+        id : "parkhacker",
+        password: "12345",
+    },
+    
 ]
 
-export default user;
+export default userData;

@@ -22,7 +22,21 @@ const Container = styled.div`
         height: 40px;
         background: black;
         color : #ffffff;
-        margin: 50px;
+        margin-bottom: 80px;
+        font-size:15px;
+        border-radius : 15px;
+        cursor: pointer;
+    }
+    .input_msg{
+            position: absolute;
+            left : 10px;
+            top: 95px;
+            color: red;
+            font-size: 13px;
+        }
+    .success {
+        margin : 50px;
+        color: green;
     }
     .move_login{
         cursor: pointer;
@@ -42,35 +56,30 @@ position: relative;
             border:none;
             border-bottom: 1px solid #999;
         }
-        .input_msg{
-            position:absolute;
-            left: 10px;
-            top : 95px;
-            color: red;
-            font-size: 13px;
-        }
+        
         label {
             position: absolute;
             left : 0px;
-            top : 35px;
+            top : 55px;
             color : #999;
             transition : all 0.5s ease;
         }
-        
-        input:focus + label {
-            top : 40px;
-            font-size : 13px;
-            color: blue;
-        }
-        input:focus {
-            border-bottom: 1px solid blue;
-        }
        
         
-        /* input:valid + label::before {
-            content: '✓';
-            color: green;
-} */
+        input:focus + label,
+        input:valid + label {
+            top : 40px;
+            font-size : 13px;
+            color: steelblue;
+        }
+    
+        input:invalid {
+            border-bottom: 2px solid red;
+        }
+        
+        input:invalid + label {
+            color: red;
+        }
    
 `
 

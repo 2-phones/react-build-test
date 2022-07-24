@@ -11,7 +11,8 @@ const SignUP = ({setUserData}) => {
         id : '', 
         password : '',
     });
-    const[inputMsg , setInputMsg] = useState('아이디를 입력해주세요');
+    const[failedMsg , setFailedMsg] = useState('');
+    const[successMsg, setSuccessMsg] = useState('');
 
     const newUser = (key) => (e) => { //회원가입 페이지 아이디, 비번 입력 값 받아오기
         setNewUserInfo({...newUserInfo, [key] : e.target.value });
@@ -29,7 +30,8 @@ const SignUP = ({setUserData}) => {
         // setNewUserInfo({id: '' , password : ''})
         console.log(newUserInfo)
         axios.post('http://localhost:4848/login',{...newUserInfo})
-        .then(res => console.log(res))
+        .then(res => setSuccessMsg(res.data))
+        .catch(err => setFailedMsg(err.response.data) )
         
     }
 
@@ -47,19 +49,17 @@ const SignUP = ({setUserData}) => {
                 <div className="acc_modal">
                     <h1>회원가입</h1>
                     <AccountInput>
-                        <input type="text" placeholder="아이디입력" onChange={newUser('id')} />
+                        <input type="text" onChange={newUser('id')} required/>
                         <label for='id'>아이디</label>
-                        <span className="input_msg">{inputMsg}</span>
+                        <span className="input_msg">{failedMsg}</span>
                     </AccountInput>
                     <AccountInput>
-                        <input  type="password" onChange={newUser('password')}/>
+                        <input  type="password" onChange={newUser('password')} required/>
                         <label for="pw">비밀번호</label>
                     </AccountInput>
-                    <AccountInput>
-                        <input type="text" onChange={newUser('userName')}/>
-                        <label for="username">닉네임</label>
-                    </AccountInput>
+                    <div className="success">{successMsg}</div>
                     <button className="join_btn" onClick={createNewUser}>가입하기</button>
+                    
                     <div className="move_login" onClick={ () => navigate('/login')}>로그인하기</div>
                 </div>
             </Container>

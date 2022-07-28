@@ -22,7 +22,7 @@ const Container = styled.div`
         height: 40px;
         background: black;
         color : #ffffff;
-        margin-bottom: 80px;
+        margin-bottom: 30px;
         font-size:15px;
         border-radius : 15px;
         cursor: pointer;
@@ -35,7 +35,7 @@ const Container = styled.div`
             font-size: 13px;
         }
     .success {
-        margin : 50px;
+        margin : 30px;
         color: green;
     }
     .move_login{
@@ -73,14 +73,18 @@ position: relative;
             color: steelblue;
         }
     
-        input:invalid {
+        /* input:invalid {
             border-bottom: 2px solid red;
-        }
+        } */
         
-        input:invalid + label {
+        /* input:invalid + label {
             color: red;
-        }
+        } */
    
+`
+
+const FinishModal = styled.div`
+    
 `
 
 

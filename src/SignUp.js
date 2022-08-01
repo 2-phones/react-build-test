@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import userData from "./data";
 import { useNavigate,useLocation } from "react-router-dom";
-import { AccountInput, Container } from "./LoginsStyle";
+import { AccountInput, SignUpContainer } from "./LoginsStyle";
 import axios from "axios";
 
 
@@ -55,7 +55,7 @@ const SignUP = ({setUserData}) => {
     
     return(
         <> 
-            <Container>
+            <SignUpContainer>
                 <div className="acc_modal">
                     <h1>회원가입</h1>
                     <AccountInput>
@@ -78,7 +78,7 @@ const SignUP = ({setUserData}) => {
                     
                     <div className="move_login" onClick={ () => navigate('/login')}>로그인하기</div>
                 </div>
-            </Container>
+            </SignUpContainer>
         </>
     )
 }

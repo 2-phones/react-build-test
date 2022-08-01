@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
-
-const Container = styled.div`
+/// 회원가입 sytle
+const SignUpContainer = styled.div`
     display:flex;
     justify-content: center;
     margin: 50px;
@@ -83,9 +83,67 @@ position: relative;
    
 `
 
+// Login style
+
+const LoginContainer = styled.div`
+    display:flex;
+    justify-content: center;
+    margin : 50px;
+
+    .login_modal {
+        border: 1px solid black;
+        width : 700px;
+        height : 650px;
+    }
+   
+
+    button {
+        width : 360px;
+        height : 35px;
+        margin : 15px;
+        border-radius : 15px;
+    }
+    .social_Login {
+        display:flex;
+        flex-direction : column;
+        align-items : center;
+    }
+`
+const Logininput = styled.div`
+    position: relative;
+
+     input {
+        width : 360px;
+        height : 30px;
+        margin : 20px;
+        outline : none;
+        border: none;
+        border-bottom : 1px solid ;
+        font-size : 15px;
+    }
+
+    label {
+            position: absolute;
+           
+            left : 170px;
+            top : 25px;
+            color : #999;
+            transition : all 0.5s ease;
+        }
+
+    input:focus + label,
+    input:valid + label {
+            top : 5px;
+            font-size : 13px;
+            color: steelblue;
+        }
+
+
+`
+
 const FinishModal = styled.div`
     
 `
 
 
-export {AccountInput , Container, }
+export {AccountInput , SignUpContainer, LoginContainer , Logininput}

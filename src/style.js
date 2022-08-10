@@ -47,7 +47,7 @@ const LoginBtn = styled.button`
     border-radius: 20px;
     cursor : pointer;
    }
-   > .login-Btn {
+   .login-Btn {
        margin-top : 0px;
        margin-bottom : 60px;
        background : black;

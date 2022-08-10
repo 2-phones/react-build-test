@@ -12,36 +12,36 @@ const Login = ({userDatas}) => {
         id : '',
         password : '',
     });
-  
-
+    const [isLogin , setIsLogin] = useState(false);
     const idInputCheck = (key) => (e) => {
         setUserInfo({...userInfo, [key]: e.target.value});
     };
+    const enterCheck = (e) => {
+        if(e.key === 'Enter') return btnClick()
+    }
     
 // 함수내용 : 로그인 인풋이 빈값인경우 와 유저 데이터의 정보와 맞지않는경우 경고 모달, 로그인 인풋값 과 유저 데이터 맞을시 성공
-    const btnClick = () => { 
+    const btnClick = (e) => { 
         const checkUser = userDatas.filter( (user) => user.id === userInfo.id && user.password === userInfo.password);
         console.log(checkUser)
         if(!userInfo.id || !userInfo.password ) return alert('please id & password enter!')
         if(!checkUser.length) return alert('아이디 비번 확인하샘!');
-        
-        return alert('성공');
+        return setIsLogin(!isLogin)
        
     };
    
     return (
         <>
-            <LoginUi 
-            idInputCheck={idInputCheck} 
-            btnClick={btnClick} 
-            />
+        {!isLogin ? <LoginUi idInputCheck={idInputCheck} enterCheck = {enterCheck}  btnClick={btnClick} /> 
+        : <Loggedin/> }
+
         </>
     )
 }
 
 
 
-const LoginUi = ({idInputCheck, btnClick }) => {
+const LoginUi = ({idInputCheck, btnClick , enterCheck }) => {
     const navigate = useNavigate();
     return  (
         <LoginContainer>
@@ -64,20 +64,21 @@ const LoginUi = ({idInputCheck, btnClick }) => {
             id="pwInput" 
             type="password" 
             onChange={idInputCheck('password')}
+            onKeyPress={enterCheck}
             required
             />
             <label for="id">USER PW</label>
         </div>
         </Logininput>
-        <div className="login-btn">
+        <ul className="userInfo_box">
+            <li className="userInfo_searcht">id/pw찾기</li>
+            <li  className="userInfo_join" onClick= { () => navigate('/signup' ) }> 회원가입</li>
+        </ul>
+        <div className="login">
             <button 
             className="login-Btn" 
             onClick={btnClick }
             >로그인</button>
-        </div>
-        <div className="signup_idpwserach">
-            <button onClick= { () => navigate('/signup' ) }> 회원가입</button>
-            <div>id/pw찾기</div>
         </div>
         <div className="social_Login">
             <button className="social-Login google">
@@ -96,6 +97,14 @@ const LoginUi = ({idInputCheck, btnClick }) => {
         </div>
         </div>
     </LoginContainer>
+    )
+}
+
+const Loggedin = () => {
+    return(
+        <LoginContainer>
+            <h2>로그인 완료 되었습니다!</h2>
+        </LoginContainer>
     )
 }
 

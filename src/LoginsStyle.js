@@ -96,17 +96,30 @@ const LoginContainer = styled.div`
         height : 650px;
     }
    
+    .userInfo_box {
+        display:flex;
+        justify-content : space-evenly;
+        list-style: none;
+        margin-right : 30px;
+        cursor: pointer;
+    } 
 
     button {
         width : 360px;
         height : 35px;
         margin : 15px;
         border-radius : 15px;
+        font-size : 18px;
+        cursor: pointer;
     }
     .social_Login {
         display:flex;
         flex-direction : column;
         align-items : center;
+    }
+    .login-Btn {
+        background : black;
+        color : #ffffff;
     }
 `
 const Logininput = styled.div`

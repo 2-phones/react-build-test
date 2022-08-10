@@ -89,6 +89,12 @@ const LoginContainer = styled.div`
     display:flex;
     justify-content: center;
     margin : 50px;
+`
+const LoginModal = styled.div`
+
+    border: 1px solid black;
+    width : 700px;
+    height : 650px;
 
     .login_modal {
         border: 1px solid black;
@@ -122,6 +128,8 @@ const LoginContainer = styled.div`
         color : #ffffff;
     }
 `
+
+
 const Logininput = styled.div`
     position: relative;
 
@@ -159,4 +167,4 @@ const FinishModal = styled.div`
 `
 
 
-export {AccountInput , SignUpContainer, LoginContainer , Logininput}
+export {AccountInput , SignUpContainer, LoginContainer , Logininput ,  LoginModal, }

@@ -92,21 +92,15 @@ const LoginContainer = styled.div`
 `
 const LoginModal = styled.div`
 
-    border: 1px solid black;
-    width : 700px;
-    height : 650px;
-
-    .login_modal {
         border: 1px solid black;
-        width : 700px;
+        width : 600px;
         height : 650px;
-    }
-   
+
     .userInfo_box {
         display:flex;
         justify-content : space-evenly;
         list-style: none;
-        margin-right : 30px;
+        margin-right : 50px;
         cursor: pointer;
     } 
 
@@ -145,8 +139,7 @@ const Logininput = styled.div`
 
     label {
             position: absolute;
-           
-            left : 170px;
+            left : 20%;
             top : 25px;
             color : #999;
             transition : all 0.5s ease;

@@ -47,7 +47,7 @@ const LoginUi = ({idInputCheck, btnClick , enterCheck }) => {
         <LoginContainer>
             <LoginModal>
                 <div className="login_modal">
-                <h3>로그인</h3>
+                <h2>로그인</h2>
                 <Logininput>
                 <div className="id_pw">
                     <input 
@@ -72,7 +72,8 @@ const LoginUi = ({idInputCheck, btnClick , enterCheck }) => {
                 </div>
                 </Logininput>
                 <ul className="userInfo_box">
-                    <li className="userInfo_searcht">id/pw찾기</li>
+                    <li className="userInfo_searcht"><input type="checkBox"/> 로그인유지</li>
+                    <li className="userInfo_searcht">ID/PW 찾기</li>
                     <li  className="userInfo_join" onClick= { () => navigate('/signup' ) }> 회원가입</li>
                 </ul>
                 <div className="login">

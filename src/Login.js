@@ -7,6 +7,7 @@ import { LoginContainer,Logininput,LoginModal } from "./LoginsStyle";
 
 
 
+
 const Login = ({userDatas}) => {
     const [userInfo, setUserInfo ] = useState({
         id : '',
@@ -77,24 +78,22 @@ const LoginUi = ({idInputCheck, btnClick , enterCheck }) => {
                     <li  className="userInfo_join" onClick= { () => navigate('/signup' ) }> 회원가입</li>
                 </ul>
                 <div className="login">
-                    <button 
-                    className="login-Btn" 
-                    onClick={btnClick }
-                    >로그인</button>
-                </div>
-                <div className="social_Login">
-                    <button className="social-Login google">
-                        <span><FontAwesomeIcon icon={faGoogle} /></span>
-                        <span> Google Login </span>
+                    <button className="login-Btn"onClick={btnClick }>로그인</button>
+                    <button className="social_Login">
+                        <img src="https://blog.hubspot.com/hubfs/image8-2.jpg"></img>
+                        <span className="brand"> Google Login </span>
                     </button>
-                    <button className="social-Login naver">
-                        Naver Loign
+                    <button className="social_Login">
+                        <img src="https://blog.hubspot.com/hubfs/image8-2.jpg"></img>
+                        <sapn className="brand">Naver Loign</sapn>
                     </button>
-                    <button className="social-Login instagram">
-                        <FontAwesomeIcon icon={faInstagram} /> Instagram Login
+                    <button className="social_Login">
+                        <img src="https://blog.hubspot.com/hubfs/image8-2.jpg"></img>
+                        <sapn className="brand">Instagram Login</sapn> 
                     </button>
-                    <button className="social-Login kakao">
-                        Kakao Login
+                    <button className="social_Login">
+                        <img src="https://blog.hubspot.com/hubfs/image8-2.jpg"></img>
+                        <sapn className="brand">Kakao Login</sapn> 
                     </button>
                 </div>
                 </div>

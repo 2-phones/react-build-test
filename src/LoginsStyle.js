@@ -103,7 +103,13 @@ const LoginModal = styled.div`
         margin-right : 50px;
         cursor: pointer;
     } 
-
+    
+    .login {
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        margin-left : 100px;
+    }
     button {
         width : 360px;
         height : 35px;
@@ -112,11 +118,22 @@ const LoginModal = styled.div`
         font-size : 18px;
         cursor: pointer;
     }
+
+    img {
+        width : 60px;
+        height : 25px;
+        background: #ffffff;
+    }
     .social_Login {
         display:flex;
-        flex-direction : column;
-        align-items : center;
+        align-items:center;
+        background: #ffffff;
     }
+
+    .brand {
+        margin-left: 70px;
+    }
+
     .login-Btn {
         background : black;
         color : #ffffff;
